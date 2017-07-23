@@ -1,0 +1,2 @@
+
+*/10 * * * *  php /var/www/bin/console app:check-winner >> /var/log/cron.log 2>&1

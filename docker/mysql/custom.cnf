@@ -1,0 +1,13 @@
+[mysqld]
+
+sql_mode = ""
+
+# Set Slow Query Log
+long_query_time = 1
+slow_query_log = on
+slow_query_log_file = /var/log/mysql/slowquery.log
+log_queries_not_using_indexes = on
+
+#Set General Log
+general_log = on
+general_log_file=/var/log/mysql/mysql.log

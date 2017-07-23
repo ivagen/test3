@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container" ng-app="app">
+        <div class="page-header">
+            <h1>System of betting</h1>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6" ng-controller="BetController">
+                <h3>Bets</h3>
+                <form name="bet" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="bet_player_id">Player id</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="bet_player_id" name="bet[player_id]" class="form-control" ng-model="bet.data.player_id" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="bet_game_id">Game id</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="bet_game_id" name="bet[game_id]" class="form-control" ng-model="bet.data.game_id" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2 required" for="bet_amount">Amount</label>
+                        <div class="col-sm-10">
+                            <input type="number" id="bet_amount" name="bet[amount]" required="required" class="form-control" ng-model="bet.data.amount" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" ng-click="addBet(bet);" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6" ng-controller="ScoreController">
+                <h3>Score</h3>
+                <form name="score" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="score_player_id">Player id</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="score_player_id" name="score[player_id]" class="form-control" ng-model="score.data.player_id" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="score_bet_id">Bet id</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="score_bet_id" name="score[bet_id]" class="form-control" ng-model="score.data.bet_id" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="score_score">Score</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="score_score" name="score[score]" class="form-control" ng-model="score.data.score" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" ng-click="addScore(score);" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <table class="table table-hover" ng-controller="ListController">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Origin Guid</th>
+                    <th>Opponent Guid</th>
+                    <th>Game Id</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                    <th>Winner</th>
+                    <th>Origin Score</th>
+                    <th>Opponent Score</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in bets">
+                    <th scope="row">{[{row.id}]}</th>
+                    <td>{[{row.origin_guid}]}</td>
+                    <td>{[{row.opponent_guid}]}</td>
+                    <td>{[{row.game_id}]}</td>
+                    <td>{[{row.status}]}</td>
+                    <td>{[{row.amount}]}</td>
+                    <td>{[{row.winner}]}</td>
+                    <td>{[{row.origin_score}]}</td>
+                    <td>{[{row.opponent_score}]}</td>
+                    <td>{[{row.start}]}</td>
+                    <td>{[{row.end}]}</td>
+                    <td>{[{row.created_at}]}</td>
+                    <td>{[{row.updated_at}]}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <toaster-container toaster-options="{'time-out': 1000}"></toaster-container>
+    </div>
+
+{% endblock %}

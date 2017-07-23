@@ -1,0 +1,6 @@
+services:
+    app.bet.service:
+        class: AppBundle\Service\BetService
+        arguments:
+            - "@request_stack"
+            - "@doctrine.orm.entity_manager"
