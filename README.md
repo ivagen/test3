@@ -62,3 +62,5 @@ You must have an already installed **docker** and **docker-compose**.
 *If, while building container, the terminal speaks of busy ports - try to free them.*
 
 *If you have problems connecting to the database, you may need to change the permissions on the files in the folder path/to/project/docker/mysql*
+
+*Check your user uid. And if it is not 1000 - change it in the file path/to/project/docker-compose.yml*
