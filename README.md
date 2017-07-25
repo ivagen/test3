@@ -24,7 +24,7 @@ You must have an already installed **docker** and **docker-compose**.
 
 ``/var/www/``
 
-**Run the installation script:**
+**Run the installation script (in the container):**
 
 ``sh setup.sh``
 
