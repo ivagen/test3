@@ -1,64 +1,64 @@
-# Тестовое задание #
+# Test (Emulation of bets on the game) #
 
-## Установка ##
+## Installation ##
 
-Необходимо иметь уже установленный **docker** и **docker-compose**.
+You must have an already installed **docker** and **docker-compose**.
 
-**Клонируем проект:**
+**Clone the project:**
 
 ``git clone https://github.com/ivagen/test3.git .``
 
-**Заходм в папку проекта:**
+**Enter to the folder of project:**
 
 ``cd path/to/project/``
 
-**Поднимаем docker контейнер:**
+**Run the docker container:**
 
-``sh docker/bash/run.sh`` или ``docker-compose up -d``
+``sh docker/bash/run.sh`` or ``docker-compose up -d``
 
-**Заходим в контейнер:**
+**Enter in the container:**
 
-``sh docker/bash/ssh.sh`` или ``docker exec -i -t test_front /bin/bash``
+``sh docker/bash/ssh.sh`` or ``docker exec -i -t test_front /bin/bash``
 
-**В контейнере сразу попадаем в папку проекта:**
+**In the container we already get to the project folder:**
 
 ``/var/www/``
 
-**Запускаем установочный скрипт:**
+**Run the installation script:**
 
 ``sh setup.sh``
 
-## Проект готов к использованию по ссылке http://0.0.0.0
+## The project is ready to use by reference http://0.0.0.0 ##
 
-**Крон проверки победителя запускается при выполнении скрипта setup.sh (см. выше).**
+**The winner's verification cron starts when the setup.sh script runs (see above).**
 
-**Для более красивого имени сайта нужно добавить записть в файл /etc/hosts :**
+``Cron settings are copied with the file path/to/project/docker/crontab``
+
+**For a more beautiful site name, you need to add the file to the file /etc/hosts :**
 
 ``0.0.0.0 test.local``
 
-**База данных доступна по адресу http://0.0.0.0:4001 .**
+**The database is available at http://0.0.0.0:4001 .**
 
-*Сервер:* ``mysql``
+*Server:* ``mysql``
 
-*Имя пользователя:* ``symfony``
+*Username:* ``symfony``
 
-*Пароль:* ``symfony``
+*Password:* ``symfony``
 
-*База данных:* ``symfony``
+*Database:* ``symfony``
 
-**Выход из контейнера:** ``exit``
+**Exit the container:** ``exit``
 
-**Удалить все контейнеры:**
+**Delete all containers:**
 
 ``cd path/to/project/``
 
 ``sh docker/bash/rmi.sh``
 
 ## P.S. ##
-*Если при сборке контейнера или разворачивании проекта что-то пошло не так - попытайтесь перезустить процесс.*
+*If something went wrong when building a container or installing a project - try to re-process the process.*
 
-*Если при сборке docker контейнера консоль ругается на занятые порты - попытайтесь их освободить.*
+*If, while building container, the terminal speaks of busy ports - try to free them.*
 
-*Если возникают проблемы с подключением к БД, возможно нужно поменять права на файлы в папке path/to/project/docker/mysql*
-
-*Если ничего не помогает - действуйте по обстоятельствам.*
+*If you have problems connecting to the database, you may need to change the permissions on the files in the folder path/to/project/docker/mysql*
